@@ -1,19 +1,26 @@
+document.addEventListener("DOMContentLoaded", () => {
+  //fetchData
+  fetchData();
 
+  //Create searchBox and searchButton to use
+  const searchBox = document.querySelector("#search-box");
+  const searchButton = document.querySelector("#status-form button");
 
-document.addEventListener("DOMContentLoaded", () =>{
-    //fetchData 
-    fetchData();
-    
-    //Create searchBox and searchButton to use
-    const searchBox = document.querySelector('#search-box');
-    const searchButton = document.querySelector('#status-form button');
+  //Create event listener for when the user clicks search
+  searchButton.addEventListener("click", (click) => {
+    click.preventDefault();
+    const wordInput = searchBox.value.normalize("NFC").toLowerCase();
+    birdsFilter(wordInput);
+  });
 
-    //Create event listener for when the user clicks search
-    searchButton.addEventListener('click', (click) =>{
-        click.preventDefault();
-        const wordInput = searchBox.value.normalize("NFC").toLowerCase();
-        birdsFilter(wordInput);
-    });
+  //Create statusSelect
+  const statusSelect = document.querySelector('#status-select');
+
+  //Create event listener for when the user selects a staus
+  statusSelect.addEventListener("change", () => {
+    const select = statusSelect.value;
+    filterStatus(select);
+  });
 });
 
 async function fetchData() {
@@ -73,22 +80,37 @@ function birdsShow(birds) {
   });
 }
 
-function birdsFilter(wordInput){
-    //Create const
-    const birdsCard = document.querySelectorAll('.bird-card');
-    
-    birdsCard.forEach(card =>{
-        //Ensures that birds name is normalized and lowercase
-        const birdsName = card.querySelector('h2').textContent.normalize("NFC").toLowerCase();
-        if (birdsName.includes(wordInput)){
-            card.style.display = 'block';
-        }else{
-            card.style.display = 'none';
+function birdsFilter(wordInput) {
+  //Create const
+  const birdsCard = document.querySelectorAll(".bird-card");
+
+  birdsCard.forEach((card) => {
+    //Ensures that birds name is normalized and lowercase
+    const birdsName = card
+      .querySelector("h2")
+      .textContent.normalize("NFC")
+      .toLowerCase();
+    if (birdsName.includes(wordInput)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
+  });
+}
 
+function filterStatus(status) {
+  //Create birdsCard
+  const birdsCard = document.querySelectorAll(".bird-card");
 
-        });
+  birdsCard.forEach((card) => {
+    //Status const 
+    const birdStat = card.querySelector("p").textContent.toLowerCase();
+    const cleanerStat = status.replace("-", " ");
 
-
-
+    if (status === "" || birdStat === cleanerStat) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
 }
