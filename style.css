@@ -32,3 +32,12 @@ footer {
     padding: 20px;
     text-align: center;
 }
+.bird-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: lightblue;
+    border-radius: 15px ;
+}
