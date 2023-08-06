@@ -1,3 +1,21 @@
+
+
+document.addEventListener("DOMContentLoaded", () =>{
+    //fetchData 
+    fetchData();
+    
+    //Create searchBox and searchButton to use
+    const searchBox = document.querySelector('#search-box');
+    const searchButton = document.querySelector('#status-form button');
+
+    //Create event listener for when the user clicks search
+    searchButton.addEventListener('click', (click) =>{
+        click.preventDefault();
+        const wordInput = searchBox.value.normalize("NFC").toLowerCase();
+        birdsFilter(wordInput);
+    });
+});
+
 async function fetchData() {
   const response = await fetch("./data/nzbird.json");
   if (!response.ok) {
@@ -5,10 +23,11 @@ async function fetchData() {
   }
   const data = await response.json(); // parse to JSON and await it
   console.log(data); // use the data
-  showBirds(data);
+  birdsShow(data);
 }
 
-function showBirds(birds) {
+//function to show all of the birds
+function birdsShow(birds) {
   //Create birdList const
   const birdList = document.querySelector("#bird-list");
 
@@ -34,7 +53,9 @@ function showBirds(birds) {
     //birdStatusColor add to card
     const birdStatusColor = document.createElement("div");
     birdStatusColor.classList.add("status-color");
-    birdStatusColor.classList.add(bird.status.toLowerCase().replace(/\s+/g, '-'));
+    birdStatusColor.classList.add(
+      bird.status.toLowerCase().replace(/\s+/g, "-")
+    );
 
     //birdPhotographer add to card
     const birdPhotographer = document.createElement("p");
@@ -51,5 +72,23 @@ function showBirds(birds) {
     birdList.appendChild(birdCard);
   });
 }
-// Call fetchData 
-document.addEventListener("DOMContentLoaded", fetchData);
+
+function birdsFilter(wordInput){
+    //Create const
+    const birdsCard = document.querySelectorAll('.bird-card');
+    
+    birdsCard.forEach(card =>{
+        //Ensures that birds name is normalized and lowercase
+        const birdsName = card.querySelector('h2').textContent.normalize("NFC").toLowerCase();
+        if (birdsName.includes(wordInput)){
+            card.style.display = 'block';
+        }else{
+            card.style.display = 'none';
+    }
+
+
+        });
+
+
+
+}
