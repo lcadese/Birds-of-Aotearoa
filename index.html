@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birds of Aotearoa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-   
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
+  <body>
     <header>
       <h1>Birds of Aotearoa</h1>
     </header>
@@ -16,14 +19,13 @@
         <section>
           <form id="search-form">
             <h2>Filter Birds</h2>
-            <label for="search-box">Search for a bird:</label><br>
-            <input type="text" id="search-box" name="search-box">
+            <label for="search-box">Search for a bird:</label><br />
+            <input type="text" id="search-box" name="search-box" />
             <button type="submit">Search</button>
           </form>
 
           <form id="status-form">
-            <label for="status-select">Filter by conservation status:</label
-            >
+            <label for="status-select">Filter by conservation status:</label>
             <select id="status-select" name="status-select">
               <option value="">All</option>
               <option value="not-threatened">Not Threatened</option>
@@ -31,14 +33,19 @@
               <option value="relict">Relict</option>
               <option value="recovering">Recovering</option>
               <option value="declining">Declining</option>
-              <option value="nationally-increasing">Nationally Increasing</option>
-              <option value="nationally-vulnerable">Nationally Vulnerable</option>
-              <option value="nationally-endangered">Nationally Endangered</option>
+              <option value="nationally-increasing">
+                Nationally Increasing
+              </option>
+              <option value="nationally-vulnerable">
+                Nationally Vulnerable
+              </option>
+              <option value="nationally-endangered">
+                Nationally Endangered
+              </option>
               <option value="nationally-critical">Nationally Critical</option>
               <option value="extinct">Extinct</option>
               <option value="data-deficient">Data Deficient</option></select
-            ><br>
-    
+            ><br />
           </form>
         </section>
 
@@ -91,9 +98,7 @@
         </section>
       </aside>
 
-      <section id="bird-list">
-      </section>
-      
+      <section id="bird-list"></section>
     </main>
     <script src="birdys.js"></script>
     <footer>
@@ -102,17 +107,27 @@
       </p>
     </footer>
     <div id="birdPopOut" class="popOut">
-    <div class="popOut-content">
+      <div class="popOut-content">
         <span class="close">&times;</span>
-        <img id="popOutImage" src="path_to_placeholder_image.jpg"  alt="Bird Image">
+        <img
+          id="popOutImage"
+          src="path_to_placeholder_image.jpg"
+          alt="Bird Image"
+        />
         <h2 id="popOutName"></h2>
         <p id="popOutDescription"></p>
-        <p><strong>Scientific Name:</strong> <span id="popOutScientificName"></span></p>
-    <p><strong>Order:</strong> <span id="popOutOrder"></span></p>
-    <p><strong>Family:</strong> <span id="popOutFamily"></span></p>
-    <p><strong>Other Names:</strong> <span id="popOutOtherNames"></span></p>
-    <p><strong>Size:</strong> Length: <span id="popOutLength"></span>, Weight: <span id="popOutWeight"></span></p>
+        <p>
+          <strong>Scientific Name:</strong>
+          <span id="popOutScientificName"></span>
+        </p>
+        <p><strong>Order:</strong> <span id="popOutOrder"></span></p>
+        <p><strong>Family:</strong> <span id="popOutFamily"></span></p>
+        <p><strong>Other Names:</strong> <span id="popOutOtherNames"></span></p>
+        <p>
+          <strong>Size:</strong> Length: <span id="popOutLength"></span>,
+          Weight: <span id="popOutWeight"></span>
+        </p>
+      </div>
     </div>
-</div>
   </body>
 </html>
