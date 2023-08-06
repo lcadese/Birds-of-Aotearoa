@@ -3,3 +3,9 @@ Student ID: 3327796
 https://github.com/lcadese/Assignment-1
 https://lcadese.github.io/Assignment-1/
 
+One issue I found was trying to get the cards to stay at the certain 
+height and width when dealing with different screen sizes but I believe
+it is mostly resolved.
+
+My extra feature is when you click on any bird card a popup appears
+which has all of the extra information from the json file.
