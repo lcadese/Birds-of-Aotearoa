@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Create searchBox and searchButton to use
   const searchBox = document.querySelector("#search-box");
-  const searchButton = document.querySelector("#status-form button");
+  const searchButton = document.querySelector("#search-form button");
 
   //Create event listener for when the user clicks search
   searchButton.addEventListener("click", (click) => {
@@ -14,12 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //Create statusSelect
-  const statusSelect = document.querySelector('#status-select');
+  const statusSelect = document.querySelector("#status-select");
 
   //Create event listener for when the user selects a staus
   statusSelect.addEventListener("change", () => {
     const select = statusSelect.value;
     filterStatus(select);
+  });
+  const popOut = document.getElementById("birdPopOut");
+  const closeButton = document.querySelector(".close");
+
+  closeButton.addEventListener("click", function () {
+    popOut.style.display = "none";
   });
 });
 
@@ -42,6 +48,8 @@ function birdsShow(birds) {
     //Create a new bird card
     const birdCard = document.createElement("article");
     birdCard.classList.add("bird-card");
+
+    birdCard.dataset.bird = JSON.stringify(bird);
 
     //Get the data for the bird card and add it
     //birdImg add to card
@@ -77,6 +85,36 @@ function birdsShow(birds) {
 
     //Append card to the website
     birdList.appendChild(birdCard);
+
+    // Attach click event to the newly created birdCard
+    document
+      .getElementById("bird-list")
+      .addEventListener("click", function (event) {
+        if (event.target.closest(".bird-card")) {
+          const birdCard = event.target.closest(".bird-card");
+
+          // Retrieve the bird data from the card's data attribute
+          const birdData = JSON.parse(birdCard.dataset.bird);
+
+          document.getElementById("popOutName").textContent =
+            birdData.english_name + " (" + birdData.primary_name + ")";
+          document.getElementById("popOutImage").src = birdData.photo.source;
+          document.getElementById("popOutDescription").textContent =
+            birdData.status;
+          document.getElementById("popOutScientificName").textContent =
+            birdData.scientific_name;
+          document.getElementById("popOutOrder").textContent = birdData.order;
+          document.getElementById("popOutFamily").textContent = birdData.family;
+          document.getElementById("popOutOtherNames").textContent =
+            birdData.other_names.join(", ");
+          document.getElementById("popOutLength").textContent =
+            birdData.size.length.value + " " + birdData.size.length.units;
+          document.getElementById("popOutWeight").textContent =
+            birdData.size.weight.value + " " + birdData.size.weight.units;
+
+          document.getElementById("birdPopOut").style.display = "block";
+        }
+      });
   });
 }
 
@@ -103,7 +141,7 @@ function filterStatus(status) {
   const birdsCard = document.querySelectorAll(".bird-card");
 
   birdsCard.forEach((card) => {
-    //Status const 
+    //Status const
     const birdStat = card.querySelector("p").textContent.toLowerCase();
     const cleanerStat = status.replace("-", " ");
 
