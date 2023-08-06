@@ -1,11 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
     <title>Birds of Aotearoa</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Birds of Aotearoa</h1>
+    </header>
+    <main>
+      <aside>
+        <section>
+          <form id="search-form">
+            <h2>Filter Birds</h2>
+            <label for="search-box">Search for a bird:</label><br />
+            <input type="text" id="search-box" name="search-box" />
+          </form>
+
+          <form id="status-form">
+            <label for="status-select">Filter by conservation status:</label
+            ><br />
+            <select id="status-select" name="status-select">
+              <option value="">All</option>
+
+              <option value="endangered">Endangered</option></select
+            ><br />
+            <button type="submit">Search</button>
+          </form>
+        </section>
+
+        <section class="status-key">
+          <h2>Conservation Status Key</h2>
+          <div>
+            <span class="not-threatened"></span>
+            <p>Not Threatened</p>
+          </div>
+          <div>
+            <span class="naturally-uncommon"></span>
+            <p>Naturally Uncommon</p>
+          </div>
+          <div>
+            <span class="relict"></span>
+            <p>Relict</p>
+          </div>
+          <div>
+            <span class="recovering"></span>
+            <p>Recovering</p>
+          </div>
+          <div>
+            <span class="declining"></span>
+            <p>Declining</p>
+          </div>
+          <div>
+            <span class="nationally-increasing"></span>
+            <p>Nationally Increasing</p>
+          </div>
+          <div>
+            <span class="nationally-vulnerable"></span>
+            <p>Nationally Vulnerable</p>
+          </div>
+          <div>
+            <span class="nationally-endangered"></span>
+            <p>Nationally Endangered</p>
+          </div>
+          <div>
+            <span class="nationally-critical"></span>
+            <p>Nationally Critical</p>
+          </div>
+          <div>
+            <span class="extinct"></span>
+            <p>Extinct</p>
+          </div>
+          <div>
+            <span class="data-deficient"></span>
+            <p>Data Deficient</p>
+          </div>
+        </section>
+      </aside>
+
+      <section id="bird-list">
+        <article class="bird-card">
+          <img src="bird-image-url" alt="bird-name" />
+          <h2 class="bird-name">Bird Name</h2>
+          <p class="bird-status">Conservation Status</p>
+          <div
+            class="status-color"
+            style="background-color: status-color"
+          ></div>
+          <p class="photo-credit">Photo by Photographer Name</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Data sourced from <a href="https://www.birdsnz.org.nz/">Birds NZ</a>
+      </p>
+    </footer>
+  </body>
 </html>
