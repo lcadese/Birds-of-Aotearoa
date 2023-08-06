@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Birds of Aotearoa</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    >
+    <link rel="stylesheet" href="./style.css" >
   </head>
   <body>
     <header>
@@ -19,8 +19,8 @@
         <section>
           <form id="search-form">
             <h2>Filter Birds</h2>
-            <label for="search-box">Search for a bird:</label><br />
-            <input type="text" id="search-box" name="search-box" />
+            <label for="search-box">Search for a bird:</label><br >
+            <input type="text" id="search-box" name="search-box" >
             <button type="submit">Search</button>
           </form>
 
@@ -45,7 +45,7 @@
               <option value="nationally-critical">Nationally Critical</option>
               <option value="extinct">Extinct</option>
               <option value="data-deficient">Data Deficient</option></select
-            ><br />
+            ><br>
           </form>
         </section>
 
@@ -98,7 +98,8 @@
         </section>
       </aside>
 
-      <section id="bird-list"></section>
+      <div id="bird-list">
+      </div>
     </main>
     <script src="birdys.js"></script>
     <footer>
@@ -113,8 +114,8 @@
           id="popOutImage"
           src="path_to_placeholder_image.jpg"
           alt="Bird Image"
-        />
-        <h2 id="popOutName"></h2>
+        >
+        <h2 id="popOutName">Name: </h2>
         <p id="popOutDescription"></p>
         <p>
           <strong>Scientific Name:</strong>
